@@ -11,7 +11,7 @@ api = Api(app)
 class webService(Resource):
     global SalesVelocityModel
     SalesVelocityModel = salesModel()
-    def get(self):
+    def post(self):
         if 'calc_sales' in request.form:
             variables_dict = ast.literal_eval(request.form['calc_sales'])
             return jsonify(calculatedSales=SalesVelocityModel.calc_sales_per_year(variables_dict['deals'],variables_dict['deal_size'],variables_dict['win_rate'],variables_dict['avg_sales_cycle']))

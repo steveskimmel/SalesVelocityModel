@@ -24,7 +24,8 @@ class webService(Resource):
         elif 'increased_sales_value' in request.form:
             variables_dict = ast.literal_eval(request.form['increased_sales_value'])
             return SalesVelocityModel.new_sales_value(variables_dict['percentage_increase_deals'],variables_dict['percentage_increase_deal_size'],variables_dict['percentage_increase_win_rate'],variables_dict['percentage_increase_avg_sales_cycle'])
-
+        else:
+            return request.form
 api.add_resource(webService, '/')
 
 if __name__ == '__main__':

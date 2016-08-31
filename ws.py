@@ -12,7 +12,9 @@ class webService(Resource):
     global SalesVelocityModel
     SalesVelocityModel = salesModel()
     def post(self):
-        if 'calc_sales' in request.form:
+        json_data = request.get_json(force=True)
+        print json_data
+        '''if 'calc_sales' in request.form:
             variables_dict = ast.literal_eval(request.form['calc_sales'])
             return SalesVelocityModel.calc_sales_per_year(variables_dict['deals'],variables_dict['deal_size'],variables_dict['win_rate'],variables_dict['avg_sales_cycle'])
         elif 'sales_perc_increase' in request.form:
@@ -27,6 +29,7 @@ class webService(Resource):
         else:
             print request.__dict__
             return str(request.form) + str("Yauvan, you are wrong!")
+        '''
 api.add_resource(webService, '/')
 
 if __name__ == '__main__':

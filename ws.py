@@ -15,7 +15,9 @@ class webService(Resource):
         json_data = request.get_json(force=True)
         if 'calc_sales' in json_data:
             variables_dict = json_data['calc_sales']
-            return SalesVelocityModel.calc_sales_per_year(variables_dict['deals'],variables_dict['deal_size'],variables_dict['win_rate'],variables_dict['avg_sales_cycle'])
+            a = SalesVelocityModel.calc_sales_per_year(variables_dict['deals'],variables_dict['deal_size'],variables_dict['win_rate'],variables_dict['avg_sales_cycle'])
+            print a
+            return a
         elif 'sales_perc_increase' in request.form:
             variables_dict = ast.literal_eval(request.form['sales_perc_increase'])
             return SalesVelocityModel.new_sales_percentage_increase(variables_dict['new_sales'])

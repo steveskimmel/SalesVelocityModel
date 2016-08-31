@@ -15,17 +15,15 @@ class webService(Resource):
         json_data = request.get_json(force=True)
         if 'calc_sales' in json_data:
             variables_dict = json_data['calc_sales']
-            a = SalesVelocityModel.calc_sales_per_year(variables_dict['deals'],variables_dict['deal_size'],variables_dict['win_rate'],variables_dict['avg_sales_cycle'])
-            print a
-            return a
-        elif 'sales_perc_increase' in request.form:
-            variables_dict = ast.literal_eval(request.form['sales_perc_increase'])
+            return SalesVelocityModel.calc_sales_per_year(variables_dict['deals'],variables_dict['deal_size'],variables_dict['win_rate'],variables_dict['avg_sales_cycle'])
+        elif 'sales_perc_increase' in json_data:
+            variables_dict = json_data['sales_perc_increase']
             return SalesVelocityModel.new_sales_percentage_increase(variables_dict['new_sales'])
-        elif 'variables_perc_increase' in request.form:
-            variables_dict = ast.literal_eval(request.form['variables_perc_increase'])
+        elif 'variables_perc_increase' in json_data:
+            variables_dict = json_data['variables_perc_increase']
             return SalesVelocityModel.uniform_variable_percentage_increase(variables_dict['percentage_increase'])
         elif 'increased_sales_value' in request.form:
-            variables_dict = ast.literal_eval(request.form['increased_sales_value'])
+            variables_dict = json_data['increased_sales_value']
             return SalesVelocityModel.new_sales_value(variables_dict['percentage_increase_deals'],variables_dict['percentage_increase_deal_size'],variables_dict['percentage_increase_win_rate'],variables_dict['percentage_increase_avg_sales_cycle'])
 api.add_resource(webService, '/')
 

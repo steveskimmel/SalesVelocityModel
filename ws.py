@@ -13,9 +13,8 @@ class webService(Resource):
     SalesVelocityModel = salesModel()
     def post(self):
         json_data = request.get_json(force=True)
-        print json_data
-        '''if 'calc_sales' in request.form:
-            variables_dict = ast.literal_eval(request.form['calc_sales'])
+        if 'calc_sales' in json_data:
+            variables_dict = json_data['calc_sales']
             return SalesVelocityModel.calc_sales_per_year(variables_dict['deals'],variables_dict['deal_size'],variables_dict['win_rate'],variables_dict['avg_sales_cycle'])
         elif 'sales_perc_increase' in request.form:
             variables_dict = ast.literal_eval(request.form['sales_perc_increase'])
@@ -26,10 +25,6 @@ class webService(Resource):
         elif 'increased_sales_value' in request.form:
             variables_dict = ast.literal_eval(request.form['increased_sales_value'])
             return SalesVelocityModel.new_sales_value(variables_dict['percentage_increase_deals'],variables_dict['percentage_increase_deal_size'],variables_dict['percentage_increase_win_rate'],variables_dict['percentage_increase_avg_sales_cycle'])
-        else:
-            print request.__dict__
-            return str(request.form) + str("Yauvan, you are wrong!")
-        '''
 api.add_resource(webService, '/')
 
 if __name__ == '__main__':

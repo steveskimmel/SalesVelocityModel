@@ -22,7 +22,7 @@ class webService(Resource):
         elif 'variables_perc_increase' in json_data:
             variables_dict = json_data['variables_perc_increase']
             return SalesVelocityModel.uniform_variable_percentage_increase(variables_dict['percentage_increase'])
-        elif 'increased_sales_value' in request.form:
+        elif 'increased_sales_value' in json_data:
             variables_dict = json_data['increased_sales_value']
             return SalesVelocityModel.new_sales_value(variables_dict['percentage_increase_deals'],variables_dict['percentage_increase_deal_size'],variables_dict['percentage_increase_win_rate'],variables_dict['percentage_increase_avg_sales_cycle'])
 api.add_resource(webService, '/')

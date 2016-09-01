@@ -12,7 +12,7 @@ class salesModel():
         global_win_rate = win_rate + 0.0
         global_avg_sales_cycle = avg_sales_cycle + 0.0
         global_sales = (global_deals*global_deal_size*(global_win_rate/100))/(global_avg_sales_cycle/365)
-        return round(global_sales,0)
+        return int(global_sales)
 
     def new_sales_percentage_increase(self,new_sales):
         percentage_increase = ((new_sales-global_sales)/global_sales)*100
@@ -52,7 +52,7 @@ class salesModel():
         percentage_increase_avg_sales_cycle /= 100
 
         sales_value = (((1+percentage_increase_deals)*global_deals)*((1+percentage_increase_deal_size)*global_deal_size)*((1+percentage_increase_win_rate)*(global_win_rate/100)))/((1-percentage_increase_avg_sales_cycle)*(global_avg_sales_cycle/365))
-        return round(sales_value,0)
+        return int(sales_value)
 
 #current = calc_sales_per_year(deals, deal_size, win_rate, avg_sales_cycle)
 #perc = increase(new_sales)

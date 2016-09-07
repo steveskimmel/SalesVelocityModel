@@ -2,17 +2,12 @@ import numpy as np
 
 class salesModel():
     def calc_sales_per_year(self,deals, deal_size, win_rate, avg_sales_cycle):
-        global global_deals
-        global global_deal_size
-        global global_win_rate
-        global global_avg_sales_cycle
-        global global_sales
-        global_deals = deals + 0.0
-        global_deal_size = deal_size + 0.0
-        global_win_rate = win_rate + 0.0
-        global_avg_sales_cycle = avg_sales_cycle + 0.0
-        global_sales = (global_deals*global_deal_size*(global_win_rate/100))/(global_avg_sales_cycle/365)
-        return str(int(round(global_sales))) + ";" +str(global_sales)
+        deals = deals + 0.0
+        deal_size = deal_size + 0.0
+        win_rate = win_rate + 0.0
+        avg_sales_cycle = avg_sales_cycle + 0.0
+        sales = (deals*deal_size*(win_rate/100))/(avg_sales_cycle/365)
+        return str(int(round(sales))) + ";" +str(sales)
 
     def new_sales_percentage_increase(self,new_sales,current_sales):
         new_sales = float(new_sales)
@@ -43,19 +38,14 @@ class salesModel():
         return round(np.real(variable_percentage_increase)[0],2)
 
     def new_sales_value(self,percentage_increase_deals,percentage_increase_deal_size,percentage_increase_win_rate,percentage_increase_avg_sales_cycle,current_deals,current_deal_size,current_win_rate,current_avg_sales_cycle):
-        percentage_increase_deals = int(percentage_increase_deals)
-        percentage_increase_deal_size = int(percentage_increase_deal_size)
-        percentage_increase_win_rate = int(percentage_increase_win_rate)
-        percentage_increase_avg_sales_cycle = int(percentage_increase_avg_sales_cycle)
-        current_deals = int(current_deals)
-        current_deal_size = int(current_deal_size)
-        current_win_rate = int (current_win_rate)
-        current_avg_sales_cycle = int(current_avg_sales_cycle)
-
         percentage_increase_deals += 0.0
         percentage_increase_deal_size += 0.0
         percentage_increase_win_rate += 0.0
         percentage_increase_avg_sales_cycle += 0.0
+        current_deals += 0.0
+        current_deal_size += 0.0
+        current_win_rate += 0.0
+        current_avg_sales_cycle += 0.0
 
         percentage_increase_deals /= 100
         percentage_increase_deal_size /= 100

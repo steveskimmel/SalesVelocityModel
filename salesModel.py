@@ -11,13 +11,11 @@ class salesModel():
         global_deal_size = deal_size + 0.0
         global_win_rate = win_rate + 0.0
         global_avg_sales_cycle = avg_sales_cycle + 0.0
-        global_sales = 0.0
         global_sales = (global_deals*global_deal_size*(global_win_rate/100))/(global_avg_sales_cycle/365)
-        return int(round(global_sales))
+        return str(int(round(global_sales))) + ";" +str(global_sales)
 
-    def new_sales_percentage_increase(self,new_sales):
-        print "New Sales " + str(new_sales) + ", Global Sales" + str(global_sales)
-        percentage_increase = ((new_sales-global_sales)/global_sales)*100
+    def new_sales_percentage_increase(self,new_sales,current_sales):
+        percentage_increase = ((new_sales-current_sales)/current_sales)*100
         return round(percentage_increase,2)
 
     def uniform_variable_percentage_increase(self,percentage_increase):

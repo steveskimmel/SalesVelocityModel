@@ -18,7 +18,7 @@ class webService(Resource):
             return SalesVelocityModel.calc_sales_per_year(variables_dict['deals'],variables_dict['deal_size'],variables_dict['win_rate'],variables_dict['avg_sales_cycle'])
         elif 'sales_perc_increase' in json_data:
             variables_dict = json_data['sales_perc_increase']
-            return SalesVelocityModel.new_sales_percentage_increase(variables_dict['new_sales'])
+            return SalesVelocityModel.new_sales_percentage_increase(variables_dict['new_sales'],variables_dict['current_sales'])
         elif 'variables_perc_increase' in json_data:
             variables_dict = json_data['variables_perc_increase']
             return SalesVelocityModel.uniform_variable_percentage_increase(variables_dict['percentage_increase'])

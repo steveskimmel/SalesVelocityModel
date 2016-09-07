@@ -56,6 +56,9 @@ class salesModel():
         sales_value = (((1+percentage_increase_deals)*current_deals)*((1+percentage_increase_deal_size)*current_deal_size)*((1+percentage_increase_win_rate)*(current_win_rate/100)))/((1-percentage_increase_avg_sales_cycle)*(current_avg_sales_cycle/365))
         return int(round(sales_value))
 
+    def new_sales_value_test(self,a,b,c,d,e,f,g,h):
+        return 10
+
 #current = calc_sales_per_year(deals, deal_size, win_rate, avg_sales_cycle)
 #perc = increase(new_sales)
 #percInc = m.perc_Inc(perc)/100

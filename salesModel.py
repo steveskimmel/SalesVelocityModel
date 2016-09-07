@@ -54,6 +54,7 @@ class salesModel():
         percentage_increase_avg_sales_cycle /= 100
 
         sales_value = (((1+percentage_increase_deals)*current_deals)*((1+percentage_increase_deal_size)*current_deal_size)*((1+percentage_increase_win_rate)*(current_win_rate/100)))/((1-percentage_increase_avg_sales_cycle)*(current_avg_sales_cycle/365))
+        print sales_value
         return int(round(sales_value))
 
 #current = calc_sales_per_year(deals, deal_size, win_rate, avg_sales_cycle)

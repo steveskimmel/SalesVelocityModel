@@ -16,6 +16,7 @@ class salesModel():
         return int(round(global_sales))
 
     def new_sales_percentage_increase(self,new_sales):
+        print "New Sales " + str(new_sales) + ", Global Sales" + str(global_sales)
         percentage_increase = ((new_sales-global_sales)/global_sales)*100
         return round(percentage_increase,2)
 

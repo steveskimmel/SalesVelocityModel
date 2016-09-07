@@ -43,8 +43,15 @@ class salesModel():
         return round(np.real(variable_percentage_increase)[0],2)
 
     def new_sales_value(self,percentage_increase_deals,percentage_increase_deal_size,percentage_increase_win_rate,percentage_increase_avg_sales_cycle,current_deals,current_deal_size,current_win_rate,current_avg_sales_cycle):
+        percentage_increase_deals = int(percentage_increase_deals)
+        percentage_increase_deal_size = int(percentage_increase_deal_size)
+        percentage_increase_win_rate = int(percentage_increase_win_rate)
+        percentage_increase_avg_sales_cycle = int(percentage_increase_avg_sales_cycle)
+        current_deals = int(current_deals)
+        current_deal_size = int(current_deal_size)
+        current_win_rate = int (current_win_rate)
+        current_avg_sales_cycle = int(current_avg_sales_cycle)
 
-        print str(percentage_increase_deals) + " " + str(percentage_increase_deals) + " " + str(percentage_increase_deal_size) + " " + str(percentage_increase_win_rate) + " " + str(percentage_increase_avg_sales_cycle) + " " + str(current_deals) + " " + str(current_deal_size) + " " + str(current_win_rate) + " " + str(current_avg_sales_cycle)
         percentage_increase_deals += 0.0
         percentage_increase_deal_size += 0.0
         percentage_increase_win_rate += 0.0
@@ -54,9 +61,6 @@ class salesModel():
         percentage_increase_deal_size /= 100
         percentage_increase_win_rate /= 100
         percentage_increase_avg_sales_cycle /= 100
-
-        print str((((1+percentage_increase_deals)*current_deals)*((1+percentage_increase_deal_size)*current_deal_size)*((1+percentage_increase_win_rate)*(current_win_rate/100))))
-        print str(((1-percentage_increase_avg_sales_cycle)*(current_avg_sales_cycle/365)))
 
         sales_value = (((1+percentage_increase_deals)*current_deals)*((1+percentage_increase_deal_size)*current_deal_size)*((1+percentage_increase_win_rate)*(current_win_rate/100)))/((1-percentage_increase_avg_sales_cycle)*(current_avg_sales_cycle/365))
         return int(round(sales_value))

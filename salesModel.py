@@ -11,6 +11,7 @@ class salesModel():
         global_deal_size = deal_size + 0.0
         global_win_rate = win_rate + 0.0
         global_avg_sales_cycle = avg_sales_cycle + 0.0
+        global_sales = 0.0
         global_sales = (global_deals*global_deal_size*(global_win_rate/100))/(global_avg_sales_cycle/365)
         return int(round(global_sales))
 

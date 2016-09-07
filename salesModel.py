@@ -42,7 +42,7 @@ class salesModel():
 
         return round(np.real(variable_percentage_increase)[0],2)
 
-    def new_sales_value(self,percentage_increase_deals, percentage_increase_deal_size, percentage_increase_win_rate, percentage_increase_avg_sales_cycle):
+    def new_sales_value(self,percentage_increase_deals, percentage_increase_deal_size, percentage_increase_win_rate, percentage_increase_avg_sales_cycle,current_deals,current_deal_size,current_win_rate,current_avg_sales_cycle):
         percentage_increase_deals += 0.0
         percentage_increase_deal_size += 0.0
         percentage_increase_win_rate += 0.0
@@ -53,7 +53,7 @@ class salesModel():
         percentage_increase_win_rate /= 100
         percentage_increase_avg_sales_cycle /= 100
 
-        sales_value = (((1+percentage_increase_deals)*global_deals)*((1+percentage_increase_deal_size)*global_deal_size)*((1+percentage_increase_win_rate)*(global_win_rate/100)))/((1-percentage_increase_avg_sales_cycle)*(global_avg_sales_cycle/365))
+        sales_value = (((1+percentage_increase_deals)*current_deals)*((1+percentage_increase_deal_size)*current_deal_size)*((1+percentage_increase_win_rate)*(current_win_rate/100)))/((1-percentage_increase_avg_sales_cycle)*(current_avg_sales_cycle/365))
         return int(round(sales_value))
 
 #current = calc_sales_per_year(deals, deal_size, win_rate, avg_sales_cycle)

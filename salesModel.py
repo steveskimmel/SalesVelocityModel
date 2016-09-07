@@ -44,7 +44,7 @@ class salesModel():
 
     def new_sales_value(self,percentage_increase_deals,percentage_increase_deal_size,percentage_increase_win_rate,percentage_increase_avg_sales_cycle,current_deals,current_deal_size,current_win_rate,current_avg_sales_cycle):
 
-        print str(percentage_increase_deals) + " " + str(percentage_increase_deals) + " " + str(percentage_increase_deal_size) + " " + str(percentage_increase_win_rate) + " " + str(percentage_increase_avg_sales_cycle) + " " + str(current_deals,current_deal_size) + " " + str(current_win_rate,current_avg_sales_cycle)
+        print str(percentage_increase_deals) + " " + str(percentage_increase_deals) + " " + str(percentage_increase_deal_size) + " " + str(percentage_increase_win_rate) + " " + str(percentage_increase_avg_sales_cycle) + " " + str(current_deals) + " " + str(current_deal_size) + " " + str(current_win_rate) + " " + str(current_avg_sales_cycle)
         percentage_increase_deals += 0.0
         percentage_increase_deal_size += 0.0
         percentage_increase_win_rate += 0.0

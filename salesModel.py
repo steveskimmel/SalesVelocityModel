@@ -55,6 +55,9 @@ class salesModel():
         percentage_increase_win_rate /= 100
         percentage_increase_avg_sales_cycle /= 100
 
+        print str((((1+percentage_increase_deals)*current_deals)*((1+percentage_increase_deal_size)*current_deal_size)*((1+percentage_increase_win_rate)*(current_win_rate/100))))
+        print str(((1-percentage_increase_avg_sales_cycle)*(current_avg_sales_cycle/365)))
+
         sales_value = (((1+percentage_increase_deals)*current_deals)*((1+percentage_increase_deal_size)*current_deal_size)*((1+percentage_increase_win_rate)*(current_win_rate/100)))/((1-percentage_increase_avg_sales_cycle)*(current_avg_sales_cycle/365))
         return int(round(sales_value))
 
